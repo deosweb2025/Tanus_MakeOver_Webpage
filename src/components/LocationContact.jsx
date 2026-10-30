@@ -5,11 +5,11 @@ import {
   Phone,
   Mail,
   Clock,
-  MessageCircle,
   Sparkles,
   CheckCircle,
   Navigation,
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { siteData } from '../data/siteData';
 
 const LocationContact = () => {
@@ -162,7 +162,7 @@ const LocationContact = () => {
               {/* WhatsApp Direct */}
               <div className="flex items-start gap-3.5 pt-4 border-t border-white/10">
                 <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shrink-0 mt-1">
-                  <MessageCircle className="w-4 h-4 text-emerald-400" />
+                  <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                 </div>
                 <div>
                   <div className="text-xs text-stone-400 font-medium uppercase tracking-wider">
@@ -392,7 +392,7 @@ const LocationContact = () => {
                   type="submit"
                   className="w-full py-4 px-6 rounded-xl font-semibold uppercase tracking-[0.2em] text-black bg-gradient-to-r from-[#e5c158] via-[#d4af37] to-[#b8860b] shadow-lg shadow-[#d4af37]/25 hover:shadow-[#d4af37]/50 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-xs sm:text-sm"
                 >
-                  <MessageCircle className="w-4 h-4 text-black" />
+                  <WhatsAppIcon className="w-4 h-4 text-black" />
                   <span>Send Inquiry via WhatsApp</span>
                 </button>
               </form>

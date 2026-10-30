@@ -1,6 +1,7 @@
 import { useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, MessageCircle, Calendar } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const LightboxModal = ({ isOpen, currentIndex, images, onClose, onPrev, onNext }) => {
   const currentImage = images[currentIndex];
@@ -142,9 +143,9 @@ const LightboxModal = ({ isOpen, currentIndex, images, onClose, onPrev, onNext }
             <div className="shrink-0 flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto justify-center">
               <button
                 onClick={handleWhatsAppInquiry}
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white transition-all shadow-md shadow-emerald-900/40 active:scale-95"
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#25D366] hover:bg-[#20bd5a] text-white transition-all shadow-md shadow-emerald-900/40 active:scale-95"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
+                <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
                 <span>Inquire Look</span>
               </button>
 

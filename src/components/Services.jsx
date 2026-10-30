@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { Sparkles, CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react';
+import { Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import { siteData } from '../data/siteData';
+import servicesHeaderTexture from '../assets/optimized/services-header-texture.webp';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const Services = () => {
   const { services, contact } = siteData;
@@ -23,34 +25,50 @@ const Services = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.7 }}
-          className="services-header text-center max-w-3xl mx-auto mb-16 sm:mb-20"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1c1917] border border-[#d4af37]/35 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-            <span className="text-[10px] sm:text-xs tracking-[0.25em] font-semibold text-[#f7e7ce] uppercase">
-              COUTURE MAKEUP SERVICES
-            </span>
+        {/* Section Header with Dedicated Luxury Background Texture */}
+        <div className="relative max-w-4xl mx-auto mb-16 sm:mb-20">
+          {/* Antique Gold Zari Filigree & Mandala Ambient Texture Backdrop */}
+          <div className="absolute inset-0 -top-6 -bottom-6 -left-4 -right-4 sm:-left-10 sm:-right-10 z-0 pointer-events-none rounded-3xl overflow-hidden">
+            <img
+              src={servicesHeaderTexture}
+              alt="Services Luxury Heading Gold Zari Texture"
+              className="w-full h-full object-cover object-center opacity-45 mix-blend-screen filter-none scale-105"
+            />
+            {/* Smooth Radial Vignette Mask so it blends seamlessly into the #141210 section background */}
+            <div className="absolute inset-0 bg-radial from-transparent via-[#141210]/60 to-[#141210]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#141210] via-transparent to-[#141210]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#141210] via-transparent to-[#141210]" />
           </div>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-            Curated Elegance For Every Special Occasion
-          </h2>
-          <p className="mt-4 text-stone-300 text-sm sm:text-base font-light max-w-xl mx-auto">
-            From regal traditional Bengali weddings to high-fashion camera campaigns, each look is customized to your attire, skin undertone, and personal style.
-          </p>
+
+          {/* Foreground Header Content */}
           <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-            className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-6 origin-center"
-          />
-        </motion.div>
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.7 }}
+            className="services-header relative z-10 text-center max-w-3xl mx-auto py-4 sm:py-6 px-4"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#1c1917]/90 backdrop-blur-md border border-[#d4af37]/45 shadow-[0_0_15px_rgba(212,175,55,0.2)] mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span className="text-[10px] sm:text-xs tracking-[0.25em] font-semibold text-[#f7e7ce] uppercase">
+                COUTURE MAKEUP SERVICES
+              </span>
+            </div>
+            <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+              Curated Elegance For Every Special Occasion
+            </h2>
+            <p className="mt-4 text-stone-200 text-sm sm:text-base font-light max-w-xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              From regal traditional Bengali weddings to high-fashion camera campaigns, each look is customized to your attire, skin undertone, and personal style.
+            </p>
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+              className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-6 origin-center shadow-[0_0_10px_#d4af37]"
+            />
+          </motion.div>
+        </div>
 
         {/* 5 Services Grid */}
         <div className="services-cards-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -117,7 +135,7 @@ const Services = () => {
                       onClick={() => handleBookService(service.title)}
                       className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#d4af37] hover:text-white transition-colors"
                     >
-                      <MessageCircle className="w-4 h-4 text-emerald-400" />
+                      <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                       <span>WhatsApp Inquiry</span>
                     </button>
 

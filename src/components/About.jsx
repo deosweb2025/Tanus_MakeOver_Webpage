@@ -2,6 +2,7 @@ import { motion, useInView, animate } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { Sparkles, Check, MapPin } from 'lucide-react';
 import { siteData } from '../data/siteData';
+import aboutHeaderTexture from '../assets/optimized/about-header-texture.webp';
 
 // Dynamic Count-Up / Odometer Animation for Stats Badges
 const StatCounter = ({ value }) => {
@@ -56,31 +57,47 @@ const About = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Eyebrow & Section Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto mb-16 sm:mb-20"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 border border-[#d4af37]/40 shadow-sm mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#b8860b]" />
-            <span className="text-[10px] sm:text-xs tracking-[0.25em] font-semibold text-[#8c6714] uppercase">
-              {about.eyebrow}
-            </span>
+        {/* Section Header with Dedicated Luxury Background Texture */}
+        <div className="relative max-w-4xl mx-auto mb-16 sm:mb-20">
+          {/* Royal Ivory & Gold Bridal Damask Ambient Texture Backdrop */}
+          <div className="absolute inset-0 -top-6 -bottom-6 -left-4 -right-4 sm:-left-12 sm:-right-12 z-0 pointer-events-none rounded-3xl overflow-hidden">
+            <img
+              src={aboutHeaderTexture}
+              alt="About Section Luxury Ivory Bridal Texture"
+              className="w-full h-full object-cover object-center opacity-85 mix-blend-multiply scale-105"
+            />
+            {/* Seamless Radial & Edge Vignette Masks blending into the #fbf7f2 section background */}
+            <div className="absolute inset-0 bg-radial from-transparent via-[#fbf7f2]/50 to-[#fbf7f2]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#fbf7f2] via-transparent to-[#fbf7f2]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#fbf7f2] via-transparent to-[#fbf7f2]" />
           </div>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1917] tracking-tight leading-tight">
-            {about.title}
-          </h2>
+
+          {/* Foreground Header Content */}
           <motion.div
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-            className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-5 origin-center"
-          />
-        </motion.div>
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.7 }}
+            className="relative z-10 text-center max-w-3xl mx-auto py-4 sm:py-6 px-4"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#d4af37]/45 shadow-[0_2px_12px_rgba(212,175,55,0.15)] mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-[#b8860b]" />
+              <span className="text-[10px] sm:text-xs tracking-[0.25em] font-semibold text-[#8c6714] uppercase">
+                {about.eyebrow}
+              </span>
+            </div>
+            <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1c1917] tracking-tight leading-tight drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
+              {about.title}
+            </h2>
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+              className="w-20 h-0.5 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mt-5 origin-center shadow-[0_0_8px_rgba(212,175,55,0.4)]"
+            />
+          </motion.div>
+        </div>
 
         {/* Editorial Split Grid: Images & Story */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
